@@ -1,0 +1,30 @@
+{
+  "name": "GymCheckin",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native run-ios",
+    "start-android": "react-native run-android",
+    "lint": "eslint **/*.js --cache --fix"
+  },
+  "dependencies": {
+    "react": "15.3.2",
+    "react-native": "0.36.1",
+    "react-native-router-flux": "^3.36.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "jest": {
+    "preset": "jest-react-native"
+  },
+  "devDependencies": {
+    "babel-jest": "16.0.0",
+    "babel-preset-react-native": "1.9.0",
+    "eslint": "^3.9.1",
+    "eslint-config-rallycoding": "^3.1.0",
+    "jest": "16.0.2",
+    "jest-react-native": "16.0.0",
+    "react-test-renderer": "15.3.2"
+  }
+}
