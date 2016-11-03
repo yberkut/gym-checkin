@@ -1,11 +1,24 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { Card, CardSection, Button } from './common';
 
 const HelloScreen = () => {
   const { containerStyle, textStyle } = styles;
   return (
     <View style={containerStyle}>
-      <Text style={textStyle}>Welcome to Digital Check In application!</Text>
+      <Card>
+        <CardSection>
+          <Text style={textStyle}>Welcome to Digital Check In application!</Text>
+        </CardSection>
+
+        <CardSection>
+          <Button>Login with email and password</Button>
+        </CardSection>
+
+        <CardSection>
+          <Button>Login with QR-code scanning</Button>
+        </CardSection>
+      </Card>
     </View>
   );
 };

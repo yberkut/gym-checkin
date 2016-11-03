@@ -5,7 +5,7 @@ import WelcomeScreen from './components/WelcomeScreen';
 const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="auth" component={WelcomeScreen} title="Hello" />
+      <Scene key="auth" component={WelcomeScreen} title="Welcome!" />
     </Router>
   );
 };
