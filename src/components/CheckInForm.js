@@ -1,19 +1,33 @@
-'use strict';
+import _ from 'lodash';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, AlertIOS } from 'react-native';
 import { Button, QRReader } from './common';
 
-class CheckinForm extends Component {
+class CheckInForm extends Component {
   state = {
     showCamera: true
   };
 
   onBarCodeRead(e) {
     this.setState({ showCamera: false });
+    const customerData = this.parseCustomerData(e.data);
+    this.findCustomer(customerData);
+  }
+
+  findCustomer(data) {
     AlertIOS.alert(
       'Barcode Found!',
-      'Type: ' + e.type + '\nData: ' + e.data
+      `${data.firstName} ${data.lastName}`
     );
+  }
+
+  parseCustomerData(rawData) {
+    const dataArray = rawData.split(' ');
+    return {
+      firstName: dataArray[0],
+      lastName: dataArray[1]
+    };
   }
 
   renderCamera() {
@@ -38,4 +52,12 @@ class CheckinForm extends Component {
   }
 }
 
-export default CheckinForm;
+const mapStateToProps = state => {
+  const customers = _.map(state.customers, (val, uid) => {
+    return { ...val, uid };
+  });
+
+  return { customers };
+};
+
+export default connect(mapStateToProps, {})(CheckInForm);
