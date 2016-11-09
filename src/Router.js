@@ -5,6 +5,7 @@ import LandingScreen from './components/LandingScreen';
 import CheckInForm from './components/CheckInForm';
 import CustomerList from './components/CustomerList';
 import CustomerForm from './components/CustomerForm';
+import CustomerCard from './components/CustomerCard';
 
 const RouterComponent = () => {
   return (
@@ -19,6 +20,7 @@ const RouterComponent = () => {
         <Scene key="checkIn" component={CheckInForm} title="Scan the QR-code" />
         <Scene key="customers" component={CustomerList} title="Customers" />
         <Scene key="customer" component={CustomerForm} title="Customer" />
+        <Scene key="customerCard" component={CustomerCard} title="Customer" />
       </Scene>
     </Router>
   );

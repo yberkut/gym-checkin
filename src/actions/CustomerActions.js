@@ -1,7 +1,9 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 import {
   CUSTOMERS_FETCH,
   CUSTOMERS_FETCH_SUCCESS,
+  CUSTOMER_FOUND,
   CUSTOMER_CREATE
 } from './types';
 
@@ -25,5 +27,13 @@ export const customerCreate = ({ firstName, lastName, phone }) => {
       .then(() => {
         dispatch({ type: CUSTOMER_CREATE });
       });
+  };
+};
+
+export const customerFound = (customer) => {
+  Actions.customerCard();
+  return {
+    type: CUSTOMER_FOUND,
+    payload: customer
   };
 };

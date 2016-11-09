@@ -2,24 +2,41 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, AlertIOS } from 'react-native';
+import { customerFound } from '../actions';
 import { Button, QRReader } from './common';
 
 class CheckInForm extends Component {
-  state = {
-    showCamera: true
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = { showCamera: true };
+    this.parseCustomerData.bind(this);
+    this.findCustomer.bind(this);
+  }
 
   onBarCodeRead(e) {
     this.setState({ showCamera: false });
+
     const customerData = this.parseCustomerData(e.data);
-    this.findCustomer(customerData);
+    const customer = this.findCustomer(customerData);
+
+    if (customer) {
+      this.props.customerFound(customer);
+    } else {
+      AlertIOS.alert(
+        'Customer is not found!',
+        ''
+      );
+    }
   }
 
   findCustomer(data) {
-    AlertIOS.alert(
-      'Barcode Found!',
-      `${data.firstName} ${data.lastName}`
-    );
+    const { customers } = this.props;
+
+    return _.find(customers, (c) => {
+      return c.firstName === data.firstName
+        && c.lastName === data.lastName;
+    });
   }
 
   parseCustomerData(rawData) {
@@ -37,7 +54,7 @@ class CheckInForm extends Component {
       );
     }
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Button onPress={() => this.setState({ showCamera: true })}>
           Scan once more
         </Button>
@@ -60,4 +77,4 @@ const mapStateToProps = state => {
   return { customers };
 };
 
-export default connect(mapStateToProps, {})(CheckInForm);
+export default connect(mapStateToProps, { customerFound })(CheckInForm);
