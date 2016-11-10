@@ -1,0 +1,24 @@
+{
+	"users": {
+		"zgY3pouSPoXBtdA7chSGo9h2Raj2": {
+			"firstName": "Admin",
+			"lastName": "Maximus",
+			"email": "admin@mail.com",
+			"phone": "555-55-55"
+		},
+		"9fw0cb6r9mNNfpfeKsZ9j6FRCsb2": {
+			"firstName": "Adam",
+			"lastName": "Smith",
+			"email": "adam@mail.com",
+			"phone": "555-55-55"
+		}
+	},
+	"roles": {
+		"admin": {
+			"zgY3pouSPoXBtdA7chSGo9h2Raj2": true
+		},
+		"customer": {
+			"9fw0cb6r9mNNfpfeKsZ9j6FRCsb2": true
+		}
+	}
+}

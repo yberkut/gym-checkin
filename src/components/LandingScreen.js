@@ -34,8 +34,15 @@ class LandingScreen extends Component {
   }
 
   render() {
+    const { firstName, lastName } = this.props.user;
+
     return (
       <Card>
+        <CardSection style={styles.welcomeContainerStyle}>
+          <Text style={styles.welcomeTextStyle}>
+            Welcome back, {firstName} {lastName}!
+          </Text>
+        </CardSection>
         {this.renderButtons()}
       </Card>
     );
@@ -43,9 +50,20 @@ class LandingScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  const { customerStatus } = state;
+  const { customerStatus, auth: { user } } = state;
 
-  return { customerStatus };
+  return { customerStatus, user };
+};
+
+const styles = {
+  welcomeContainerStyle: {
+    justifyContent: 'center',
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  welcomeTextStyle: {
+    fontSize: 18
+  }
 };
 
 export default connect(mapStateToProps, { customersFetch })(LandingScreen);

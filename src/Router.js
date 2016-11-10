@@ -16,7 +16,7 @@ const RouterComponent = () => {
       </Scene>
 
       <Scene key="main">
-        <Scene key="landing" component={LandingScreen} title="Welcome back ;)" initial />
+        <Scene key="landing" component={LandingScreen} title="Landing page" initial />
         <Scene key="checkIn" component={CheckInForm} title="Scan the QR-code" />
         <Scene key="customers" component={CustomerList} title="Customers" />
         <Scene key="customer" component={CustomerForm} title="Customer" />

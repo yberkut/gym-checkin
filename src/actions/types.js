@@ -7,3 +7,5 @@ export const CUSTOMERS_FETCH = 'customers_fetch';
 export const CUSTOMERS_FETCH_SUCCESS = 'customers_fetch_success';
 export const CUSTOMER_FOUND = 'customer_found';
 export const CUSTOMER_CREATE = 'customer_create';
+export const AUTHORIZE_USER_SUCCESS = 'authorize_user_success';
+export const AUTHORIZE_USER_FAIL = 'authorize_user_fail';
